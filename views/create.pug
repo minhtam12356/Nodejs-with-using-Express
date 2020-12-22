@@ -1,0 +1,12 @@
+extends ../layout/common
+
+block content
+    h1 CREATE
+    form(action="/user/create", method="POST")
+        .form-group
+            label(for="name") Name
+            input.form-control#name(type="text", name="name")
+        .form-group
+            label(for="phone")  Phone
+            input.form-control#phone(type="text", name="phone")
+        button.btn.btn-primary.mt-3 Create
