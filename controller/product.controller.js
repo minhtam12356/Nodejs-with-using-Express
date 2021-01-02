@@ -13,5 +13,4 @@ module.exports.product = function(req, res){
         , next: parseInt(req.query.page) + 1
         , previous: parseInt(req.query.page) - 1
         , productLength: product.get('product').value().length});
-        console.log(product.get('product').value().length/perPage-1)
 }
