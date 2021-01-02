@@ -1,39 +1,25 @@
 {
   "listUser": [
     {
-      "name": "tam",
+      "name": "1",
       "phone": "1",
-      "id": "wHxxSsy2a"
+      "username": "1",
+      "password": "c4ca4238a0b923820dcc509a6f75849b",
+      "id": "Qcc_jk3Nz"
     },
     {
-      "name": "f",
-      "phone": "f",
-      "id": "Q3vPXfNab"
+      "name": "2",
+      "phone": "2",
+      "username": "2",
+      "password": "c81e728d9d4c2f636f067f89cc14862c",
+      "id": "nrWmc_WRs"
     },
     {
-      "name": "d",
-      "phone": "d",
-      "id": "g_WRTRCG-"
-    },
-    {
-      "name": "f",
-      "phone": "f",
-      "id": "x7sKODgFe"
-    },
-    {
-      "name": "v",
-      "phone": "v",
-      "id": "hpr8AOfDz"
-    },
-    {
-      "name": "",
-      "phone": "",
-      "id": "_qjuPEcZ2"
-    },
-    {
-      "name": "",
-      "phone": "",
-      "id": "EgBzq5hjJ"
+      "name": "tam",
+      "phone": "3",
+      "username": "3",
+      "password": "eccbc87e4b5ce2fe28308fd9f2a7baf3",
+      "id": "mSgyliBa7"
     }
   ]
 }

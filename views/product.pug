@@ -1,0 +1,46 @@
+extends ../layout/common
+
+block content
+    h1 Product
+    .d-flex.justify-content-end
+        input(type="text", placeholder="input book name...")
+        button.btn.btn-primary Search
+    .list-product.d-flex(style='flex-wrap: wrap; justify-content: space-around')
+        each product in products
+            .card.mt-4(style='width: 16rem')
+                img.card-img-top.position-relative(src= product.image, style='width: 16rem; height: 12rem; left: -1px')
+                .card-body
+                    h5.card-title= product.name
+                    p.card-text= product.description
+                    a.btn.btn-primary(href='#') Add to cart
+        
+
+    //- pagination
+    nav.mt-4(aria-label='Page navigation example')
+        ul.pagination.justify-content-end
+            if previous>0
+                li.page-item
+                    a.page-link(href='/product?page=' + previous) Previous
+            else
+                li.page-item.disabled
+                    a.page-link(href='/product?page=' + previous) Previous
+            li.page-item
+                a.page-link(href='/product?page=1') 1
+            li.page-item
+                a.page-link(href='/product?page=2') 2
+            li.page-item.disabled
+                a.page-link(href='#') ...
+            li.page-item.disabled
+                a.page-link(href='/product?page=' + page)= page
+            li.page-item.disabled
+                a.page-link(href='#') ...
+            li.page-item
+                a.page-link(href='/product?page=' + (productLength/perPage-1))= productLength/perPage-1
+            li.page-item
+                a.page-link(href='/product?page=' + productLength/perPage)= productLength/perPage
+            if perPage*page==productLength
+                li.page-item.disabled
+                    a.page-link(href='/product?page=' + next) Next
+            else
+                li.page-item
+                    a.page-link(href='/product?page=' + next) Next

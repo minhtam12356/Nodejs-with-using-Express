@@ -3,7 +3,6 @@ extends ../layout/common
 block content
     h1 
         span.me-3 USERS
-        a.btn.btn-primary(href="/user/create") New User
     form.d-flex.justify-content-end(action="/user/search", method="GET")
         input(type="text", name="q", placeholder="input name...", value=value)
         button.btn.btn-primary Search

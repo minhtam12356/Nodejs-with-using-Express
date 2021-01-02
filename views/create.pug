@@ -2,11 +2,27 @@ extends ../layout/common
 
 block content
     h1 CREATE
-    form(action="/user/create", method="POST")
-        .form-group
-            label(for="name") Name
-            input.form-control#name(type="text", name="name")
-        .form-group
-            label(for="phone")  Phone
-            input.form-control#phone(type="text", name="phone")
-        button.btn.btn-primary.mt-3 Create
+    if errors
+        each error in errors
+            .alert.alert-danger(style='padding: 0.5rem 0.5rem')= error
+    if error
+            .alert.alert-danger(style='padding: 0.5rem 0.5rem')= error
+    if errorUser
+            .alert.alert-danger(style='padding: 0.5rem 0.5rem')= errorUser
+    form(action="/create", method="POST")
+        .mb-3
+            label(for="name") Name*
+            input.form-control#name(type="text", name="name", value= values? values.name: '')
+        .mb-3
+            label(for="phone") Phone*
+            input.form-control#phone(type="text", name="phone", value= values? values.phone: '')
+        .mb-3
+            label(for="username") Username*
+            input.form-control#username(type="text", name="username", value= values? values.username: '')
+        .mb-3
+            label(for="password") Password*
+            input.form-control#password(type="password", name="password")
+        .mb-3
+            label(for="c-password") Confirm Password*
+            input.form-control#c-password(type="password", name="cpass")
+        button.btn.btn-primary Create

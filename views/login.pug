@@ -1,0 +1,18 @@
+extends ../layout/common
+
+block content
+    h1 LOGIN
+    if errors
+        each error in errors
+            .alert.alert-danger= error
+    form(action="/", method="POST")
+        .mb-3
+            label(for="username") Username
+            input.form-control#username(type="text", name="username", value= values? values.username: '')
+        .mb-3
+            label(for="password") Password
+            input.form-control#password(type="password", name="password", value= values? values.password: '')
+        button.btn.btn-primary Login
+    p Create new user
+        span &nbsp;
+        a(href="/create") New User
