@@ -1,18 +1,21 @@
 extends ../layout/common
 
 block content
-    h1 Product
-    .d-flex.justify-content-end
-        input(type="text", placeholder="input book name...")
-        button.btn.btn-primary Search
+    h1 Sản phẩm
+    form.d-flex.justify-content-end(action="/product/search", method="GET")
+        input(type="text", name='q', placeholder="Nhập tên sản phẩm...", value= value)
+        button.btn.btn-primary Tìm sản phẩm
     .list-product.d-flex(style='flex-wrap: wrap; justify-content: space-around')
-        each product in products
-            .card.mt-4(style='width: 16rem')
-                img.card-img-top.position-relative(src= product.image, style='width: 16rem; height: 12rem; left: -1px')
-                .card-body
-                    h5.card-title= product.name
-                    p.card-text= product.description
-                    a.btn.btn-primary(href='#') Add to cart
+        if products==''
+            .notFound.container Không tìm thấy sản phẩm!!
+        else
+            each product in products
+                .card.mt-4(style='width: 16rem')
+                    img.card-img-top.position-relative(src= product.image, style='width: 16rem; height: 12rem; left: -1px')
+                    .card-body
+                        h5.card-title= product.name
+                        p.card-text= product.description
+                        a.btn.btn-primary(href='/cart/add/'+ product.id) Thêm vào giỏ hàng
         
 
     //- pagination
@@ -20,27 +23,39 @@ block content
         ul.pagination.justify-content-end
             if previous>0
                 li.page-item
-                    a.page-link(href='/product?page=' + previous) Previous
+                    a.page-link(href='/product?page=' + previous) Trang trước
             else
                 li.page-item.disabled
-                    a.page-link(href='/product?page=' + previous) Previous
+                    a.page-link(href='/product?page=' + previous) Trang trước
             li.page-item
                 a.page-link(href='/product?page=1') 1
             li.page-item
                 a.page-link(href='/product?page=2') 2
             li.page-item.disabled
                 a.page-link(href='#') ...
-            li.page-item.disabled
-                a.page-link(href='/product?page=' + page)= page
+            if !page
+                li.page-item.disabled
+                    a.page-link(href='/product', style="text-decoration: underline") 1
+            else
+                li.page-item.disabled
+                    a.page-link(href='/product?page=' + page, style="text-decoration: underline")= page
             li.page-item.disabled
                 a.page-link(href='#') ...
             li.page-item
-                a.page-link(href='/product?page=' + (productLength/perPage-1))= productLength/perPage-1
+                a.page-link(href='/product?page=' + (productLength/4-1))= productLength/4-1
             li.page-item
-                a.page-link(href='/product?page=' + productLength/perPage)= productLength/perPage
-            if perPage*page==productLength
-                li.page-item.disabled
-                    a.page-link(href='/product?page=' + next) Next
-            else
-                li.page-item
-                    a.page-link(href='/product?page=' + next) Next
+                a.page-link(href='/product?page=' + productLength/4)= productLength/4
+            if page
+                if perPage*page==productLength
+                    li.page-item.disabled
+                        a.page-link(href='/product?page=' + next) Trang kế
+                else
+                    li.page-item
+                        a.page-link(href='/product?page=' + next) Trang kế
+            else  
+                if perPage*1==productLength
+                    li.page-item.disabled
+                        a.page-link(href='/product?page=' + 2) Trang kế
+                else
+                    li.page-item
+                        a.page-link(href='/product?page=' + 2) Trang kế                      

@@ -1,6 +1,15 @@
 extends ../layout/common
 
 block content
-    h1 View User
-    p Hello 
+    h1 Hồ sơ thành viên
+    p Chào Bé 
         span= user.name
+    table.table
+        tr
+            th Họ tên
+            th Số điện thoại
+        tr
+            td= user.name
+            td= user.phone
+    .d-flex.justify-content-center
+        img.me-4(src= '/' + user.avatar, style=('height: 25rem; width: 25rem; border-radius: 10%'))

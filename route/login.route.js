@@ -7,4 +7,6 @@ route.get('/', controller.login)
 
 route.post('/', validate.postLogin, controller.postLogin)
 
+route.get('/signout', controller.signOut)
+
 module.exports = route;

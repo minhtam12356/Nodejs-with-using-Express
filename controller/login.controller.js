@@ -10,4 +10,9 @@ module.exports.postLogin = function(req,res){
     res.cookie('userCookie', resultUser.id, { signed: true })
     res.redirect('/home');
 }
+
+module.exports.signOut = function(req, res){
+    res.clearCookie('userCookie')
+    res.redirect('/');
+}
   

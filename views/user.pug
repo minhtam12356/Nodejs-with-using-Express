@@ -2,18 +2,21 @@ extends ../layout/common
 
 block content
     h1 
-        span.me-3 USERS
+        span.me-3 Thành viên
     form.d-flex.justify-content-end(action="/user/search", method="GET")
-        input(type="text", name="q", placeholder="input name...", value=value)
-        button.btn.btn-primary Search
+        input(type="text", name="q", placeholder="Nhập tên thành viên...", value=value)
+        button.btn.btn-primary Tìm
     table.table
         tr
-            th Name
-            th Phone
-            th Action
+            th Ảnh đại diện
+            th Họ tên
+            th Số điện thoại
+            th Ghi chú
         each user in users
-            tr    
-                td= user.name
-                td= user.phone
+            tr
                 td
-                    a.btn.btn-success(href= "/user/" + user.id) View
+                    img.me-4(src= '/' + user.avatar, style=('height: 2.5rem; width: 2.5rem; border-radius: 10%'))    
+                td.pt-3= user.name
+                td.pt-3= user.phone
+                td
+                    a.btn.btn-success(href= "/user/" + user.id) Xem hồ sơ

@@ -9,6 +9,9 @@ module.exports.create = function(req, res){
 module.exports.postCreate = function(req,res){   
     req.body.id = shortid.generate();
     delete req.body.cpass;
+
+    req.body.avatar = (req.file.destination + req.file.filename).split('/').slice(2, 4).join('/');
+
     req.body.password = md5(req.body.password)
     db.get('listUser').push(req.body).write();
       res.redirect('/');

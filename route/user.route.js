@@ -8,6 +8,9 @@ route.get('/',controller.user)
   //search
 route.get('/search', controller.search)
 
+  //cart
+route.get('/cart', controller.cart)
+
   //view user
 route.get('/:id', controller.view)
 

@@ -1,7 +1,7 @@
 extends ../layout/common
 
 block content
-    h1 CREATE
+    h1 Tạo tài khoản mới
     if errors
         each error in errors
             .alert.alert-danger(style='padding: 0.5rem 0.5rem')= error
@@ -9,20 +9,23 @@ block content
             .alert.alert-danger(style='padding: 0.5rem 0.5rem')= error
     if errorUser
             .alert.alert-danger(style='padding: 0.5rem 0.5rem')= errorUser
-    form(action="/create", method="POST")
+    form(action="/create", method="POST", enctype="multipart/form-data" )
         .mb-3
-            label(for="name") Name*
+            label(for="name") Họ tên*
             input.form-control#name(type="text", name="name", value= values? values.name: '')
         .mb-3
-            label(for="phone") Phone*
+            label(for="phone") Số điện thoại*
             input.form-control#phone(type="text", name="phone", value= values? values.phone: '')
         .mb-3
-            label(for="username") Username*
+            label(for="username") Tên đăng nhập*
             input.form-control#username(type="text", name="username", value= values? values.username: '')
         .mb-3
-            label(for="password") Password*
+            label(for="password") Mật khẩu*
             input.form-control#password(type="password", name="password")
         .mb-3
-            label(for="c-password") Confirm Password*
+            label(for="c-password") Xác nhận mật khẩu*
             input.form-control#c-password(type="password", name="cpass")
-        button.btn.btn-primary Create
+        .mb-3
+            label(for="avatar") Ảnh đại diện
+            input.form-control#avatar(type="file", name="avatar")
+        button.btn.btn-primary Tạo tài khoản

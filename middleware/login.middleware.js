@@ -1,15 +1,21 @@
 module.exports.postLogin = function(req, res, next){
     var db = require('../db');
     if(!req.signedCookies.userCookie){
-        res.redirect('/')
+        res.redirect('/login')
         return;
     }
 
-    var user = db.get('listUser').find({id: req.signedCookies.userCookie}).value();
-    if(!user){
-        res.redirect('/')
+    var userLocals = db.get('listUser').find({id: req.signedCookies.userCookie}).value();
+    if(!userLocals){
+        res.redirect('/login')
         return;
     }
-    res.locals.user = user;
+    res.locals.userLocals = userLocals;
+    next()
+}
+module.exports.product = function(req, res, next){
+    var db = require('../db');
+    var userLocals = db.get('listUser').find({id: req.signedCookies.userCookie}).value();
+    res.locals.userLocals = userLocals;
     next()
 }
