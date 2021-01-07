@@ -1,4 +1,3 @@
-var product = require('../product');
 var session = require('../session');
 
 module.exports.cart = function(req, res){

@@ -4,13 +4,19 @@ block content
     h1 Giỏ hàng của bạn!
     table.table 
         tr
-            th Tên hàng
-            th Giá(Đơn vị: VNĐ)
-            th Số lượng
+            th Tên Hàng
+            th Đơn Giá(Đơn vị: VNĐ)
+            th Số Lượng
+            th Thành Tiền(Đơn vị: VNĐ)
         each cart in carts
             tr
                 td= cart.name
                 td= cart.price 
                 td= cart.quantity     
-            
+                td= cart.price*cart.quantity
+        tr
+            th Tổng
+            th= sum 
+                span &nbsp;
+                span VNĐ
     

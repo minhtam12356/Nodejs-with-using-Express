@@ -23,13 +23,30 @@ module.exports.view = function(req, res){
 
 module.exports.cart = function(req, res){
     var products = [];
-    var cartIDproducts = session.get('session').value();
-    for(cartIDproduct of cartIDproducts){
-        for(IDproduct in cartIDproduct.cart){
-            product.get('product').find({id : IDproduct}).value()['quantity']= cartIDproduct.cart[IDproduct]
-            products.push(product.get('product').find({id : IDproduct}).value());
-        }
+    var numbers = [0];
+
+    //sum
+    var sumPQ = [];
+    var sumPrice = [];
+    var sumQuantity = [];
+
+    var cartIDproducts = session.get('session').find({sessionID : req.signedCookies.sessionCookie}).value();
+    for(cartIDproduct in cartIDproducts.cart){
+        var getProduct = product.get('product').find({id : cartIDproduct}).value()
+        getProduct['quantity']= cartIDproducts.cart[cartIDproduct]
+        products.push(getProduct);
+        numbers.push(cartIDproducts.cart[cartIDproduct]);
+        //sum
+        sumPrice.push(parseInt(getProduct.price));
+        sumQuantity.push(getProduct.quantity);
     }
 
-    res.render('cart', {carts : products});
+    //sum
+    for(var i = 0; i < sumPrice.length; i++){
+        var sumLoop = sumPrice[i] * sumQuantity[i];
+        sumPQ.push(sumLoop);
+    }
+    var sum = sumPQ.reduce((a,b)=>a+b);
+    var number = numbers.reduce((a,b)=>a+b);
+    res.render('cart', {carts : products, number : number, sum : sum});
 }

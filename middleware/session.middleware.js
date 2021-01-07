@@ -8,6 +8,7 @@ module.exports = function(req, res, next){
     if(!req.signedCookies.sessionCookie){
         res.cookie('sessionCookie', sessionCookie, { signed: true })
         session.get('session').push({sessionID : sessionCookie}).write();
+        res.redirect('back');
     }
     
 

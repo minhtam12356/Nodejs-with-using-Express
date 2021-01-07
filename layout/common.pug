@@ -15,8 +15,11 @@ html
 
             if userLocals
                 span.me-4(style='width: 6%; display: flex; justify-content: flex-end')= userLocals.name
-                svg.me-4.bi.bi-cart2(xmlns='http://www.w3.org/2000/svg', width='25', height='25', fill='currentColor', viewbox='0 0 16 16')
-                    path(d='M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z')
+                span(style='width: 3%')
+                    a.dropdown-item(href='/user/cart', style='width: 5%; padding:0')
+                        svg.me-4.bi.bi-cart2(xmlns='http://www.w3.org/2000/svg', width='25', height='25', fill='currentColor', viewbox='0 0 16 16')
+                            path(d='M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z')
+                span.me-4(style='display: flex; justify-content: flex-end; position: relative;left: -16px; bottom: -12px;')= number
                 .dropdown.show
                     a#dropdownMenuLink(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                         img.me-4(src= '/' + userLocals.avatar, aria-labelledby='dropdownMenuLink', style=('height: 2.5rem; width: 2.5rem; border-radius: 100%'))
@@ -31,8 +34,11 @@ html
                                     path(fill-rule='evenodd', d='M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z')
                                     path(fill-rule='evenodd', d='M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z')
             else
-                svg.me-4.bi.bi-cart2(xmlns='http://www.w3.org/2000/svg', width='25', height='25', fill='currentColor', viewbox='0 0 16 16')
-                    path(d='M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z')
+                span(style='width: 3%')
+                    a.dropdown-item(href='/user/cart', style='width: 5%; padding:0')
+                        svg.me-4.bi.bi-cart2(xmlns='http://www.w3.org/2000/svg', width='25', height='25', fill='currentColor', viewbox='0 0 16 16')
+                            path(d='M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z')
+                span.me-4(style='display: flex; justify-content: flex-end; position: relative;left: -16px; bottom: -12px;')= number
                 a.me-4(href='/login', style='width: 7%; display: flex; justify-content: flex-end') Đăng nhập
         .container.pt-3
             block content
