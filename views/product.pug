@@ -42,11 +42,11 @@ block content
             li.page-item.disabled
                 a.page-link(href='#') ...
             li.page-item
-                a.page-link(href='/product?page=' + (productLength/4-1))= productLength/4-1
+                a.page-link(href='/product?page=' + Math.round((productLength/4-1)))= Math.round(productLength/4-1)
             li.page-item
-                a.page-link(href='/product?page=' + productLength/4)= productLength/4
+                a.page-link(href='/product?page=' + Math.round(productLength/4))= Math.round(productLength/4)
             if page
-                if perPage*page==productLength
+                if perPage*page>=productLength
                     li.page-item.disabled
                         a.page-link(href='/product?page=' + next) Trang kế
                 else
