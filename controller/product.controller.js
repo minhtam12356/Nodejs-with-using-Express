@@ -10,14 +10,18 @@ module.exports.product = function(req, res){
     var products = [];
     var numbers = [0]
     var cartIDproducts = session.get('session').find({sessionID : req.signedCookies.sessionCookie}).value();
-    for(cartIDproduct in cartIDproducts.cart){
+    if(cartIDproducts){
+        for(cartIDproduct in cartIDproducts.cart){
         var getProduct = product.get('product').find({id : cartIDproduct}).value()
         getProduct['quantity']= cartIDproducts.cart[cartIDproduct]
         products.push(getProduct);
         numbers.push(cartIDproducts.cart[cartIDproduct]);
     }
-    var number = numbers.reduce((a,b)=>a+b)
-    res.locals.number = number
+        var number = numbers.reduce((a,b)=>a+b)
+        res.locals.number = number
+    }
+    
+    
     
     res.render('product', {products: product.get('product').value().slice(start, end)
         , perPage: perPage

@@ -1,7 +1,7 @@
 var db = require('../db');
 
 module.exports.login = function(req, res){
-    res.render('login', {users: db.get('listUser').value()})
+    res.render('login')
 }
 
 module.exports.postLogin = function(req,res){
